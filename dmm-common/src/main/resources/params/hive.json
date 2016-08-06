@@ -1,0 +1,43 @@
+{
+	"spark_env":{
+		"spark.app.name":"hive-test",
+		"spark.master":"local"
+    },
+	"input":{
+		"flag":3,
+		"sql":"select name,heigth,weight from students"
+	},
+	"output":{
+		"flag":3,
+		"store_to_hive":{
+			"createTable":1,
+			"sql":"CREATE TABLE IF NOT EXISTS test_studuent_hive3 (name string, height double,weight double)row format delimited fields terminated by '\t' stored as textfile",
+			"tableName":"test_studuent_hive3",
+			"colnums":["name:string:1","height:double:1","weight:double:1"],
+			"hdfs_field_delimit":"\t"
+		}
+    },
+	"algorithm":["params1","params2","params3","..."] 
+}
+
+{
+	"spark_env":{
+		"spark.app.name":"hive-test",
+		"spark.master":"local"
+	},
+	"input":{
+		"flag":3,
+		"sql":"select id,name,age from lzo_db.lzo_test"
+	},
+	"output":{
+		"flag":3,
+		"store_to_hive":{
+			"createTable":1,
+			"sql":"CREATE TABLE IF NOT EXISTS test_studuent_hive3 (name string, height double,weight double)row format delimited fields terminated by '\t' stored as textfile",
+			"tableName":"test_studuent_hive3",
+			"colnums":["name:string:1","height:double:1","weight:double:1"],
+			"hdfs_field_delimit":"\t"
+		}
+	},
+	"algorithm":["params1","params2","params3","..."]
+}

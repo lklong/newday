@@ -1,0 +1,32 @@
+{
+  "spark_env":{
+    "spark.app.name":"hdfs-test"
+  },
+  "input":{
+    "flag":"1",
+    "src":["hdfs://test:9000/user/hadoop/data/input/students.txt"],
+    "parse_regex":"\t",
+    "fields":[ "1:int", "5:double", "6:double"]
+  },
+  "output":{
+    "flag":"2",
+    "store_to_hdfs":{
+      "out_path":"hdfs://test:9000/user/hadoop/data/output/stu_0_hdfs",
+      "delimeter":"\t",
+      "need_head":"1",
+      "header":["1","2","3"]
+      // "header":["1:name1","2:name2","3:name3"]
+    },
+    "store_to_hbase":{
+      "out_table":"stu_out_tab",
+      "row_key":"1",
+      "colnum_famliy":["baseinfo"],
+      "colnum":{
+        "baseinfo:name":"1",
+        "baseinfo:heigth":"5",
+        "baseinfo:weight":"6"
+      }
+    }
+  },
+  "algorithm":["params1","params2","params3","..."]
+}

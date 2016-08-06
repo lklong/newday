@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<configuration>
+  <!-- WARNING!!! This file is auto generated for documentation purposes ONLY! -->
+  <!-- WARNING!!! Any changes you make to this file will be ignored by Hive.   -->
+  <!-- WARNING!!! You must make your changes in hive-site.xml instead.         -->
+  <!-- Hive Execution Parameters -->
+<!--     <property>
+        <name>hive.metastore.local</name>
+        <value>true</value>
+    </property> -->
+<!-- <property>
+  <name>hive.metastore.uris</name>
+  <value>thrift://test:9083</value>
+  <description>Thrift URI for the remote metastore. Used by metastore client to connect to remote metastore.</description>
+</property>-->
+    <property>
+        <name>javax.jdo.option.ConnectionURL</name>
+        <value>jdbc:mysql://test:3306/metastore_db4?createDatabaseIfNotExist=true</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionDriverName</name>
+        <value>com.mysql.jdbc.Driver</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionUserName</name>
+        <value>hive</value>
+    </property>
+    <property>
+        <name>javax.jdo.option.ConnectionPassword</name>
+        <value>mysql</value>
+    </property>
+    <property>
+        <name>hive.metastore.warehouse.dir</name>
+        <value>hdfs://test:9000/user/hive/warehouse</value>
+    </property>
+    <!--ACID-->
+    <property>
+        <name>hive.support.concurrency</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.enforce.bucketing</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.exec.dynamic.partition.mode</name>
+        <value>nonstrict</value>
+    </property>
+    <property>
+        <name>hive.txn.manager</name>
+        <value>org.apache.hadoop.hive.ql.lockmgr.DbTxnManager</value>
+    </property>
+    <property>
+        <name>hive.compactor.initiator.on</name>
+        <value>true</value>
+    </property>
+    <property>
+        <name>hive.compactor.worker.threads </name>
+        <value>2</value>
+    </property>
+    <!--RuntimeException Unable to set up transaction database for testing: Can't call rollback when autocommit=true-->
+    <property>
+        <name>hive.in.test</name>
+        <value>false</value>
+    </property>
+
+<!--    <property>
+  	<name>spark.home</name>
+  	<value>/home/hadoop/env/spark-1.6.1-bin-hadoop2.6</value>
+    </property>-->
+</configuration>
